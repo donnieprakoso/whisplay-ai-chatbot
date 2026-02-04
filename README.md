@@ -70,6 +70,12 @@ cd python
 pip install -r requirements.txt --break-system-packages
 ```
 
+The env template may be updated from time to time. If you want to upgrade your existing `.env` file based on the latest `.env.template`, you can run the following command:
+
+```bash
+bash upgrade-env.sh
+```
+
 ## Update Environment Variables
 
 If you need to update the environment variables, you can edit the `.env` file directly. After making changes, please restart the chatbot service with:
