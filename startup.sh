@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# if graphical interface is enabled, ask user whether to disable graphical interface
+if [ "$(systemctl get-default)" == "graphical.target" ]; then
+    echo "Graphical interface is currently enabled."
+    read -p "Disabling graphical interface is recommended for a headless setup. Do you want to disable the graphical interface? (y/n) " disable_gui
+    if [[ "$disable_gui" == "y" ]]; then
+        echo "Disabling graphical interface..."
+        sudo systemctl set-default multi-user.target
+        echo "Graphical interface disabled. You can re-enable it later with 'sudo systemctl set-default graphical.target'."
+    else
+        echo "Keeping graphical interface enabled."
+    fi
+else
+    echo "Graphical interface is currently disabled."
+fi
+
 # Get user info
 TARGET_USER=$(whoami)
 USER_HOME=$HOME
