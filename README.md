@@ -10,8 +10,14 @@ Test Video Playlist:
 Tutorial:
 [https://www.youtube.com/watch?v=Nwu2DruSuyI](https://www.youtube.com/watch?v=Nwu2DruSuyI)
 
-Tutorial 2 (offline version build on RPi 5):
-[https://www.youtube.com/watch?v=kFmhSTh167U](https://www.youtube.com/watch?v=kFmhSTh167U)
+Tutorial (offline version build on RPi 5):
+
+[https://youtu.be/kFmhSTh167U](https://youtu.be/kFmhSTh167U)
+
+[https://youtu.be/QNbHdJUW6z8](https://youtu.be/QNbHdJUW6z8)
+
+[https://youtu.be/xGzvFzdBAwc](https://youtu.be/xGzvFzdBAwc)
+
 
 ## Hardware
 
