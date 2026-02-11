@@ -7,6 +7,7 @@ import ollamaLLM from "./local/ollama-llm";
 import geminiLLM from "./gemini/gemini-llm";
 import grokLLM from "./grok/grok-llm";
 import llm8850LLM from "./local/llm8850-llm";
+import cloudflareLLM from "./cloudflare/cloudflare-llm";
 import {
   ChatWithLLMStreamFunction,
   ResetChatHistoryFunction,
@@ -45,9 +46,13 @@ switch (llmServer) {
   case LLMServer.llm8850:
     ({ chatWithLLMStream, resetChatHistory } = llm8850LLM);
     break;
+  case LLMServer.cloudflare:
+    ({ chatWithLLMStream, resetChatHistory, summaryTextWithLLM } =
+      cloudflareLLM);
+    break;
   default:
     console.warn(
-      `unknown llm server: ${llmServer}, should be volcengine/openai/gemini/ollama/grok/llm8850`,
+      `unknown llm server: ${llmServer}, should be volcengine/openai/gemini/ollama/grok/llm8850/cloudflare`,
     );
     break;
 }

@@ -29,24 +29,26 @@ export const checkWhisperInstallation = (): boolean => {
 
 let pyProcess: ChildProcess | null = null;
 if (asrServer === ASRServer.whisperhttp) {
-  checkWhisperInstallation();
-  if (
-    isWhisperInstall &&
-    ["localhost", "0.0.0.0", "127.0.0.1"].includes(whisperHost)
-  ) {
-    console.log("Starting Whisper server at port", whisperPort);
-    pyProcess = spawn(
-      "python3",
-      [
-        resolve(__dirname, "../../../python/speech-service/whisper-host.py"),
-        "--port",
-        whisperPort,
-      ],
-      {
-        detached: true,
-        stdio: "inherit",
-      }
-    );
+  // Only check whisper installation if starting local server
+  if (["localhost", "0.0.0.0", "127.0.0.1"].includes(whisperHost)) {
+    checkWhisperInstallation();
+    if (isWhisperInstall) {
+      console.log("Starting Whisper server at port", whisperPort);
+      pyProcess = spawn(
+        "python3",
+        [
+          resolve(__dirname, "../../../python/speech-service/whisper-host.py"),
+          "--port",
+          whisperPort,
+        ],
+        {
+          detached: true,
+          stdio: "inherit",
+        }
+      );
+    }
+  } else {
+    console.log(`Using remote Whisper server at ${whisperHost}:${whisperPort}`);
   }
 }
 
